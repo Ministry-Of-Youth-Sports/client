@@ -31,7 +31,7 @@ const OurTeam = () => {
 
         <Image
           src="/assets/elwakel.png"
-          alt="ios"
+          alt="person"
           width={500}
           height={500}
           className="z-30"
