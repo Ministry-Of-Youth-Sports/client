@@ -71,9 +71,11 @@ const NavBar = () => {
                 smooth
                 spy
                 hashSpy
-                activeClass="bg-vectors/30 text-active-link py-3 px-6 rounded-full"
-                className={`text-2xl ${index === 0 && !hasScrolled ? "" : ""}`}
-                offset={-120}
+                activeClass="bg-active-link text-white py-4 px-6 rounded-full"
+                className={
+                  index === 0 && !hasScrolled ? "bg-active-link text-white" : ""
+                }
+                offset={-80}
                 onSetActive={() => setHasScrolled(true)}
               >
                 {title}
