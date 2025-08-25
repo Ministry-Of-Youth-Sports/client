@@ -5,11 +5,11 @@ import { countingOrgsBoxes } from "@/constants/landing_data";
 
 const Orgs = () => {
   return (
-    <section className="pt-80" id="orgs">
+    <section className="pt-30" id="orgs">
       {/* section title box */}
       <div className="sec-text">
         <div className="p-5">
-          <h2>تغطية على مستوى القاهرة</h2>
+          <h2 className="sec-title">تغطية على مستوى القاهرة</h2>
           <p>
             نحن نعمل على بناء منصة رقمية حديثة تجمع كل إدارات ومؤسسات وزارة
             الشباب والرياضة في مصر. المنصة تتيح للمواطنين الوصول إلى البيانات

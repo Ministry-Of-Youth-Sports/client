@@ -10,30 +10,51 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
   return (
     <VerticalTimeline lineColor={lineColor}>
       {data.map(
-        ({ title, description, cardColor, icon, illustrator }, index) => (
+        (
+          {
+            title,
+            description,
+            cardColor,
+            icon,
+            illustrator,
+            num,
+            size,
+            backSvgPath,
+            iconBackGround,
+            textColor,
+          },
+          index
+        ) => (
           <VerticalTimelineElement
             key={index}
             className="vertical-timeline-element--work relative overflow-hidden"
             contentStyle={{
               background: cardColor,
-              color: "#fff",
+              color: textColor ? textColor : "#fff",
               borderRadius: "10px",
-              boxShadow: "2px 2px 10px 1px rgba(0, 0, 0, 0.5)",
+              boxShadow: "0 0 8px rgba(0, 0, 0, 0.5)",
             }}
             contentArrowStyle={{
               borderRight: `7px solid ${cardColor}`,
             }}
             iconStyle={{
-              background: "#fff",
-              color: cardColor,
+              background: iconBackGround ? iconBackGround : "#fff",
+              color: textColor ? textColor : cardColor,
               outline: `3px solid ${cardColor}`,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               marginTop: "5px",
             }}
-            icon={<Image src={icon} alt="icon" width={30} height={30} />}
+            icon={
+              num ? (
+                <span className="text-2xl">{num}</span>
+              ) : (
+                <Image src={icon || ""} alt="icon" width={30} height={30} />
+              )
+            }
           >
+            {/* images div */}
             <div
               className={`absolute flex justify-center items-center ${
                 index % 2 === 0
@@ -41,11 +62,27 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
                   : "-left-[128%]"
               } w-full h-full`}
             >
+              {/* svg back image */}
+              {backSvgPath && (
+                <svg
+                  className="absolute w-96 h-96 opacity-20"
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill={cardColor}
+                    d={backSvgPath}
+                    transform="translate(100 100)"
+                  />
+                </svg>
+              )}
+
               <Image
+                className="z-30"
                 src={illustrator}
                 alt="illustartor"
-                width={210}
-                height={210}
+                width={size.width}
+                height={size.height}
               />
             </div>
             <h3

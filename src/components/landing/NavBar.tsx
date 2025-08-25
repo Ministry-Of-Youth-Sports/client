@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 
 import HamburgerMenu from "../global/HamburgerMenu";
@@ -15,7 +14,7 @@ const NavBar = () => {
   return (
     <div className="py-2 bg-white sticky top-0 z-1000 px-5">
       <nav>
-        <Link href={"/#home"} className="block w-16 h-16">
+        <ScrollLink to="home" href={"home"} className="block w-16 h-16" smooth>
           <Image
             src="/assets/logo.jpg"
             alt="logo"
@@ -23,7 +22,7 @@ const NavBar = () => {
             height={60}
             className="w-full h-full"
           />
-        </Link>
+        </ScrollLink>
 
         <ul>
           {navLinks.map(({ title, link }, index) => (

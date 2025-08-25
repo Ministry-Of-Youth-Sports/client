@@ -32,8 +32,6 @@ const Map = () => {
   const customIcon = new L.Icon({
     iconUrl: "/assets/marker-trans.gif",
     iconSize: [40, 40],
-    // iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
-    // popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
   });
 
   return (

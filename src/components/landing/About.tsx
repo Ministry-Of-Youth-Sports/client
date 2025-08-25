@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section className="py-10 px-10" id="about">
       <div className="container">
-        <h2>عن المشروع</h2>
+        <h2 className="sec-title">عن المشروع</h2>
 
         <p>
           نحن نعمل على بناء منصة رقمية حديثة تجمع كل إدارات ومؤسسات وزارة الشباب
