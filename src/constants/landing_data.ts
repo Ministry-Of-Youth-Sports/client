@@ -187,7 +187,7 @@ const team = [
   {
     name: "Moamen Mohamed",
     position: "Mobile Developer, UI/UX Designer, Instructor",
-    image: "/assets/me-ai.png",
+    image: "/assets/moamen.jpg",
     description:
       "Moamen is a creative mobile developer with a passion for crafting engaging mobile applications. As a UI/UX designer, he ensures intuitive user experiences, and as an instructor, he helps others grow in the mobile development field.",
   },
