@@ -145,11 +145,11 @@ body {
   inset: 0;
 
   display: grid;
-  grid-template-columns: repeat(7, var(--cube-width));
+  grid-template-columns: repeat(5, var(--cube-width));
   grid-template-rows: auto;
   grid-gap: 0;
 
-  width: calc(7 * var(--cube-width));
+  width: calc(5 * var(--cube-width));
   height: var(--cube-height);
   perspective: 350px;
 
@@ -225,14 +225,6 @@ body {
 .cube:nth-child(5) {
   z-index: 2;
   animation-delay: 0.8s;
-}
-.cube:nth-child(6) {
-  z-index: 1;
-  animation-delay: 1s;
-}
-.cube:nth-child(7) {
-  z-index: 0;
-  animation-delay: 1.2s;
 }
 
 .cube {

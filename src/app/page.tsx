@@ -1,6 +1,7 @@
 import LandingPage from "@/components/landing/LandingPage";
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
       <LandingPage />
