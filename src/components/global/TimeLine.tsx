@@ -22,6 +22,7 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
             backSvgPath,
             iconBackGround,
             textColor,
+            svgPathColor,
           },
           index
         ) => (
@@ -50,7 +51,13 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
               num ? (
                 <span className="text-2xl">{num}</span>
               ) : (
-                <Image src={icon || ""} alt="icon" width={30} height={30} />
+                <Image
+                  src={icon || ""}
+                  alt="icon"
+                  width={30}
+                  height={30}
+                  unoptimized
+                />
               )
             }
           >
@@ -70,7 +77,7 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill={cardColor}
+                    fill={svgPathColor}
                     d={backSvgPath}
                     transform="translate(100 100)"
                   />
@@ -83,6 +90,7 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
                 alt="illustartor"
                 width={size.width}
                 height={size.height}
+                unoptimized
               />
             </div>
             <h3

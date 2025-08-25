@@ -12,6 +12,7 @@ type TimeLineProps = {
     backSvgPath?: string;
     iconBackGround?: string;
     textColor?: string;
+    svgPathColor?: string;
   }[];
   lineColor: string;
 };

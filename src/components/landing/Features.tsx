@@ -33,6 +33,7 @@ const Features = () => {
                 alt={`feature-${number}`}
                 fill
                 className="object-contain"
+                unoptimized
               />
             </div>
 
