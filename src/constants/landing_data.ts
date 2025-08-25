@@ -180,7 +180,7 @@ const team = [
   {
     name: "Ibrahim Elattar",
     position: "Backend Developer",
-    image: "/assets/me-ai.png",
+    image: "/assets/ibrahim.jpg",
     description:
       "Ibrahim specializes in backend development, building efficient and scalable systems. His strong understanding of databases, APIs, and server-side logic ensures that projects are stable, secure, and high-performing.",
   },

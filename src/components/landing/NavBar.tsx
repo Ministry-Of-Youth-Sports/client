@@ -12,7 +12,7 @@ const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <div className="py-2 bg-white sticky top-0 z-1000 px-5">
+    <div className="py-2 bg-white sticky top-0 z-1001 px-5">
       <nav>
         <ScrollLink to="home" href={"home"} className="block w-16 h-16" smooth>
           <Image
@@ -57,7 +57,7 @@ const NavBar = () => {
 
       {/* responsive navbar */}
       <div
-        className={`xl:hidden fixed top-[80px] left-0 transition-transform duration-300 w-full h-[calc(100vh-80px)] bg-[#e9e9e9] z-1000 flex justify-center items-center ${
+        className={`xl:hidden fixed top-[80px] left-0 transition-transform duration-150 w-full h-[calc(100vh-80px)] bg-[#e9e9e9] z-1001 flex justify-center items-center ${
           navOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -65,6 +65,7 @@ const NavBar = () => {
           {navLinks.map(({ title, link }, index) => (
             <li key={title} className="hover:cursor-pointer">
               <ScrollLink
+                onClick={() => setNavOpen(false)}
                 to={link}
                 href={link}
                 smooth

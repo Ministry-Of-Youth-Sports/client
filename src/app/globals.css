@@ -60,15 +60,15 @@ body {
     @apply h-[calc(100vh-80px)] bg-[url('/assets/hero-back.jpg')] bg-cover bg-center relative flex flex-col justify-center items-center;
 
     .content {
-      @apply relative z-20 px-4 pb-10 h-full w-fit mx-auto flex flex-col items-center justify-between;
+      @apply relative z-20 px-2 sm:px-4 pb-10 py-8 h-full mx-auto flex flex-col items-center justify-between;
     }
 
     h1 {
-      @apply text-6xl text-white text-center py-10 px-5 font-cairo-semibold leading-24 max-w-[85%];
+      @apply text-4xl w-full md:text-6xl text-white text-center font-cairo-semibold md:leading-24 md:max-w-[85%];
     }
 
     p {
-      @apply text-center max-w-4xl mx-auto px-4 text-lg font-cairo leading-10 text-secondary-text;
+      @apply text-center text-xl sm:text-2xl max-w-4xl mx-auto font-cairo leading-8 text-secondary-text;
     }
 
     button {

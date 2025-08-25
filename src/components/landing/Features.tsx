@@ -37,7 +37,9 @@ const Features = () => {
               />
             </div>
 
-            <p>{discription}</p>
+            <p className="text-xl lg:text-md leading-8 lg:leading-7">
+              {discription}
+            </p>
           </div>
         ))}
       </div>
