@@ -1,11 +1,80 @@
 import Link from "next/link";
 import SocialBox from "../global/SocialBox";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 
 const Footer = () => {
+  useGSAP(() => {
+    const footerTween = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top 50%",
+      },
+    });
+
+    footerTween.from("#contact", {
+      opacity: 0,
+    });
+
+    const splitTitle = SplitText.create("#contact .foot-text h2", {
+      type: "words",
+    });
+
+    const splitTextTitle = SplitText.create("#contact .foot-text p", {
+      type: "words",
+    });
+
+    const splitLinkTitle = SplitText.create("#contact .foot-text a", {
+      type: "words",
+    });
+
+    const splitSubTitle = SplitText.create("#contact .foot-text h3", {
+      type: "words",
+    });
+
+    const splitSubSaveTitle = SplitText.create("#contact .foot-save p", {
+      type: "words",
+    });
+
+    footerTween.from("#contact .foot-save", {
+      opacity: 0,
+      ease: "power.in",
+    });
+
+    footerTween.from(
+      [
+        splitTitle.words,
+        splitSubTitle.words,
+        splitLinkTitle.words,
+        splitTextTitle.words,
+        splitSubSaveTitle.words,
+      ],
+      {
+        y: 50,
+        opacity: 0,
+        ease: "back.out(2)",
+        stagger: 0.05,
+      }
+    );
+
+    footerTween.from("#contact .social-anim .soical-box", {
+      y: 50,
+      opacity: 0,
+      ease: "back.out(2)",
+      stagger: 0.05,
+    });
+
+    footerTween.from("#contact img", {
+      y: 50,
+      opacity: 0,
+      ease: "power.in",
+    });
+  });
   return (
-    <section className="relative mt-60 pt-24 bg-[#292929]" id="contact">
-      <div className="px-5">
+    <section className="relative mt-32 pt-24 bg-[#292929]" id="contact">
+      <div className="foot-text px-5">
         <h2 className="text-white text-center text-4xl mb-7">
           وزارة الشباب والرياضة – جمهورية مصر العربية{" "}
         </h2>
@@ -22,7 +91,7 @@ const Footer = () => {
               <p>البريد الإلكتروني:</p>
               Eygate@emss.gov.eg
             </Link>
-            <div className="flex items-center gap-5">
+            <div className="social-anim flex items-center gap-5">
               <p className="sm:text-2xl">تابعنا على:</p>
               <SocialBox
                 links={{
@@ -45,8 +114,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-darker mt-10 text-center py-6 px-4 text-white">
-        حقوق النشر © 2025 وزارة الشباب والرياضة
+      <div className="foot-save overflow-hidden bg-darker mt-10 text-center py-6 px-4 text-white">
+        <p> حقوق النشر © 2025 وزارة الشباب والرياضة</p>
       </div>
     </section>
   );

@@ -1,10 +1,51 @@
 import { featuresCards } from "@/constants/landing_data";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 import Image from "next/image";
 
 const Features = () => {
+  useGSAP(() => {
+    const featTween = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#features",
+        start: "top 50%",
+      },
+    });
+
+    const featSplitTitle = SplitText.create(".feat-sec-text h2", {
+      type: "words",
+    });
+
+    const featSubtitle = SplitText.create(".feat-sec-text p", {
+      type: "words",
+    });
+
+    featTween.from([featSplitTitle.words, featSubtitle.words], {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "back.out(2)",
+      stagger: 0.05,
+    });
+
+    gsap.from("#features .card", {
+      y: 50,
+      opacity: 0,
+      ease: "back.out(2)",
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: "#features .card",
+        start: "top 50%",
+      },
+    });
+  });
   return (
-    <section className="pt-60" id="features">
-      <div className="text-center sec-text">
+    <section
+      className="md:pt-60 pt-32  pb-10 relative overflow-y-hidden"
+      id="features"
+    >
+      <div className="text-center feat-sec-text">
         <h2 className="sec-title">مميزات المنصة</h2>
         <p>
           تم تصميم منصتنا لتكون أداة قوية وموثوقة تدعم الشباب والرياضة وتسهّل
@@ -17,7 +58,7 @@ const Features = () => {
         {featuresCards.map(({ discription, number, img }, index) => (
           <div
             key={number}
-            className={`hover:-translate-y-4 transition-transform duration-300 ${
+            className={`card min-w-[200px] flex-1/4 ${
               index === 3
                 ? "shadow-[inset_3px_2px_10px_5px_rgba(163,163,163,0.45)]"
                 : "shadow-[3px_2px_10px_2px_rgba(163,163,163,0.45)]"

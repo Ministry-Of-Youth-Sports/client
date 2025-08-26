@@ -4,14 +4,71 @@ import Image from "next/image";
 import CardSwiper from "../global/CardSwiper";
 import { team } from "@/constants/landing_data";
 import { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { SplitText } from "gsap/all";
 
 const OurTeam = () => {
   const [index, setIndex] = useState(0);
 
+  useGSAP(() => {
+    const teamTween = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#team",
+        start: "top 50%",
+      },
+    });
+
+    const SplitTitle = SplitText.create(".team-sec-text h2", {
+      type: "words",
+    });
+
+    const SplitTitle2 = SplitText.create(".team-sec-text h3", {
+      type: "words",
+    });
+
+    const Subtitle = SplitText.create(".team-sec-text p", {
+      type: "words",
+    });
+
+    teamTween.from([SplitTitle.words, SplitTitle2.words, Subtitle.words], {
+      y: 50,
+      opacity: 0,
+      ease: "back.out(2)",
+      stagger: 0.05,
+    });
+
+    gsap.from("#team img", {
+      x: -50,
+      opacity: 0,
+      ease: "back.out(2)",
+      scrollTrigger: {
+        trigger: "#team",
+        start: "top 50%",
+      },
+    });
+  });
+
+  useGSAP(() => {
+    gsap.from(
+      [
+        "#team .anim-swiper h3",
+        "#team .anim-swiper h4",
+        "#team .anim-swiper p",
+      ],
+      {
+        y: 50,
+        opacity: 0,
+        ease: "back.out(2)",
+        stagger: 0.05,
+      }
+    );
+  }, [index]);
+
   return (
-    <section className="container pt-30 px-5 lg:px-0" id="team">
+    <section className="container overflow-hidden pt-30 px-5 lg:px-0" id="team">
       <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-10">
-        <div className="sec-text">
+        <div className="team-sec-text">
           <h2 className="sec-title">د/ احمد عبد الوكيل</h2>
           <h3 className="text-lg mt-5">
             اول وكيل الوزارة - مدير مدرية الشباب و الرياضة بالقاهرة
@@ -38,10 +95,8 @@ const OurTeam = () => {
         />
       </div>
 
-      <div className="overflow-hidden min-h-96 mt-30 flex items-center flex-col lg:flex-row lg:w-[80%] mx-auto justify-between gap-10">
-        <div>
-          <CardSwiper state={index} setState={setIndex} data={team} />
-        </div>
+      <div className="anim-swiper overflow-hidden min-h-96 mt-30 flex items-center flex-col lg:flex-row lg:w-[80%] mx-auto justify-between gap-10">
+        <CardSwiper state={index} setState={setIndex} data={team} />
 
         <div dir="ltr">
           <h3 className="text-5xl mb-4 text-section-title">

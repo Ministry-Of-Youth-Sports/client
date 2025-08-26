@@ -90,7 +90,6 @@ const TimeLine = ({ data, lineColor }: TimeLineProps) => {
                 alt="illustartor"
                 width={size.width}
                 height={size.height}
-                unoptimized
               />
             </div>
             <h3
