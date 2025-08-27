@@ -44,7 +44,7 @@ const DawnloadApp = () => {
     });
   });
   return (
-    <section className="container pt-30 px-5" id="dawnload-app">
+    <section className="container pt-30 px-5 overflow-hidden" id="dawnload-app">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
         <div className="app-sec-text">
           <h2 className="sec-title">حمل التطبيق الان</h2>
