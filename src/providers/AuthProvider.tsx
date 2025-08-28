@@ -27,9 +27,8 @@ type User = {
 };
 
 interface LoginResponse {
-  data: { user: User; token: string };
+  data: { user: User; token: string; message?: string };
   success: boolean;
-  message?: string;
 }
 
 const AuthContext = createContext<AuthProviderContext | null>(null);
@@ -41,8 +40,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const handelLogin = async (formData: z.infer<typeof loginFormSchema>) => {
     const {
-      data: { user, token },
-      message,
+      data: { user, token, message },
       success,
     } = (await login(formData)) as LoginResponse;
 
