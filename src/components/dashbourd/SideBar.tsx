@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import LogoutButton from "../auth/LogoutButton";
 
 const SideBar = () => {
   // Menu items.
@@ -60,6 +61,9 @@ const SideBar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        <div className="ml-2 absolute bottom-10 left-0">
+          <LogoutButton />
+        </div>
       </SidebarContent>
     </Sidebar>
   );

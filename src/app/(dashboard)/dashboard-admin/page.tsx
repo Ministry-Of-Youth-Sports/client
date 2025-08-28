@@ -1,7 +1,5 @@
-import React from "react";
-
 const DashbourdPage = () => {
-  return <div>DashbourdPage</div>;
+  return <div className="text-white">DashbourdPage</div>;
 };
 
 export default DashbourdPage;

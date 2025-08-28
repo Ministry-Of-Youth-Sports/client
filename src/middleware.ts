@@ -4,11 +4,19 @@ import {
   DEFAULT_LOGIN_REDIRECT_URL,
   publicRoutes,
 } from "../routes";
+import { verifyToken } from "./utils/verifyToken";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { nextUrl } = request;
 
-  const user = false;
+  // Get token from cookies
+  const token = request.cookies.get("token")?.value;
+
+  // Check if user is authenticated by verifying token with backend
+  let isAuthenticated = false;
+  if (token) {
+    isAuthenticated = (await verifyToken(token)).success;
+  }
 
   // get routes-----
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
@@ -16,15 +24,23 @@ export function middleware(request: NextRequest) {
 
   // check if route is auth route------
   if (isAuthRoute) {
-    if (user) {
+    if (isAuthenticated) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT_URL, nextUrl));
     }
     return NextResponse.next();
   }
 
-  // check if route is not public and there is no user (protected routes)----
-  if (!isPublicRoute && !user) {
+  // If user is trying to access protected routes without valid authentication
+  // redirect them to login
+  if (!isPublicRoute && !isAuthenticated) {
     return Response.redirect(new URL("/login", nextUrl));
+  }
+
+  // If token exists but is invalid/expired, clear the cookie and redirect to login
+  if (token && !isAuthenticated) {
+    const response = NextResponse.redirect(new URL("/login", nextUrl));
+    response.cookies.delete("token");
+    return response;
   }
 
   return NextResponse.next();
