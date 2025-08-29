@@ -24,7 +24,7 @@ const AlertDialogBox = ({ text, className, onAction }: AlertDialogBoxProps) => {
       <AlertDialogContent className="bg-card-foreground">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-white">
-            هل أنت متأكد من حذف الخبر؟
+            هل أنت متأكد من الحذف؟
           </AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogFooter>

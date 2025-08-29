@@ -1,9 +1,8 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const fetchAllNews = async () => {
+export const fetchAllActivities = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/news?page=1&limit=50`, {
-      cache: "no-store",
+    const response = await fetch(`${API_BASE_URL}/activities`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -14,14 +13,16 @@ export const fetchAllNews = async () => {
       const data = await response.json();
       return data;
     } else {
-      throw new Error("Error fetching news data");
+      throw new Error("حدث خطاء في جلب الانشطة و البرامج");
     }
   } catch (error) {
     console.error(error);
     return {
       success: false,
       message:
-        error instanceof Error ? error.message : "Error fetching news data",
+        error instanceof Error
+          ? error.message
+          : "حدث خطاء في جلب الانشطة و البرامج",
     };
   }
 };
