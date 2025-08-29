@@ -44,6 +44,7 @@ const LoginForm = () => {
             البريد الالكتروني
           </label>
           <Input
+            dir="ltr"
             id="email"
             type="email"
             autoComplete="email"
@@ -61,6 +62,7 @@ const LoginForm = () => {
             كلمة المرور
           </label>
           <Input
+            dir="ltr"
             id="pass"
             type="password"
             placeholder="كلمة المرور"

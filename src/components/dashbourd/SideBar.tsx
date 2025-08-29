@@ -1,4 +1,6 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+"use client";
+
+import { Newspaper } from "lucide-react";
 
 import {
   Sidebar,
@@ -11,45 +13,49 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import LogoutButton from "../auth/LogoutButton";
+import { useAuth } from "@/providers/AuthProvider";
+import { usePathname } from "next/navigation";
+import { roleRoutes } from "../../../routes";
 
 const SideBar = () => {
-  // Menu items.
+  const { user } = useAuth();
+
+  const pathName = usePathname();
+
+  const link = ["الاخبار", "الانشطة و البرامج", "مراكز الشباب"];
+
+  const indexRoute = roleRoutes.indexOf(user?.role as string);
+
   const items = [
     {
-      title: "Home",
-      url: "#",
-      icon: Home,
+      id: 1,
+      title: indexRoute === -1 ? "" : link[indexRoute],
+      url: `/dashboard-admin/${user?.role}`,
+      icon: Newspaper,
+      isActive: pathName === `/dashboard-admin/${user?.role}`,
     },
     {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
-    },
-    {
-      title: "Calendar",
-      url: "#",
-      icon: Calendar,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: Search,
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings,
+      id: 2,
+      title: indexRoute === -1 ? "" : `انشاء ${link[indexRoute]}`,
+      url: `/dashboard-admin/${user?.role}/create`,
+      icon: Newspaper,
+      isActive: pathName === `/dashboard-admin/${user?.role}/create`,
     },
   ];
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
+          <SidebarGroupLabel className="text-md">
+            {user?.email}
+          </SidebarGroupLabel>
+          <SidebarGroupContent className="mt-2">
+            <SidebarMenu className="gap-4">
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem
+                  className={item.isActive ? "bg-accent rounded-md" : ""}
+                  key={item.id}
+                >
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
                       <item.icon />

@@ -3,8 +3,9 @@ import {
   authRoutes,
   DEFAULT_LOGIN_REDIRECT_URL,
   publicRoutes,
+  roleRoutes,
 } from "../routes";
-import { verifyToken } from "./utils/verifyToken";
+import { verifyToken } from "./utils/auth/verifyToken";
 
 export async function middleware(request: NextRequest) {
   const { nextUrl } = request;
@@ -14,8 +15,11 @@ export async function middleware(request: NextRequest) {
 
   // Check if user is authenticated by verifying token with backend
   let isAuthenticated = false;
+  let userRole = null;
   if (token) {
-    isAuthenticated = (await verifyToken(token)).success;
+    const verification = await verifyToken(token);
+    isAuthenticated = verification?.success ?? false;
+    userRole = verification?.role ?? null;
   }
 
   // get routes-----
@@ -24,8 +28,10 @@ export async function middleware(request: NextRequest) {
 
   // check if route is auth route------
   if (isAuthRoute) {
-    if (isAuthenticated) {
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT_URL, nextUrl));
+    if (isAuthenticated && userRole) {
+      return Response.redirect(
+        new URL(`${DEFAULT_LOGIN_REDIRECT_URL}/${userRole}`, nextUrl)
+      );
     }
     return NextResponse.next();
   }
@@ -41,6 +47,30 @@ export async function middleware(request: NextRequest) {
     const response = NextResponse.redirect(new URL("/login", nextUrl));
     response.cookies.delete("token");
     return response;
+  }
+
+  // Role-based access control for dashboard-admin/* pages
+  if (
+    isAuthenticated &&
+    userRole &&
+    nextUrl.pathname.startsWith("/dashboard-admin")
+  ) {
+    const parts = nextUrl.pathname.split("/"); // ["", "dashboard-admin", "news", ...]
+    const section = parts[2]; // might be undefined for /dashboard-admin
+
+    if (!section) {
+      // If path is exactly /dashboard-admin, redirect to the user's role page
+      return NextResponse.redirect(
+        new URL(`/dashboard-admin/${userRole}`, nextUrl)
+      );
+    }
+
+    if (roleRoutes.includes(section) && section !== userRole) {
+      // user trying to access another role page -> redirect
+      return NextResponse.redirect(
+        new URL(`/dashboard-admin/${userRole}`, nextUrl)
+      );
+    }
   }
 
   return NextResponse.next();

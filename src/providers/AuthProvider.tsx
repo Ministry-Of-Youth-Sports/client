@@ -4,10 +4,10 @@ import { createContext, use, useCallback, useEffect, useState } from "react";
 
 import { login } from "@/app/actions";
 import { loginFormSchema } from "@/lib/validations/LoginFormSchema";
-import { getTokenFromCookies } from "@/utils/getTokenFromCookies";
-import { removeTokenFromCookies } from "@/utils/removeTokenFromCookies";
-import { setTokenInCookies } from "@/utils/setTokenInCookies";
-import { verifyToken } from "@/utils/verifyToken";
+import { getTokenFromCookies } from "@/utils/auth/getTokenFromCookies";
+import { removeTokenFromCookies } from "@/utils/auth/removeTokenFromCookies";
+import { setTokenInCookies } from "@/utils/auth/setTokenInCookies";
+import { verifyToken } from "@/utils/auth/verifyToken";
 
 import { toast } from "sonner";
 import z from "zod";
@@ -68,7 +68,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setToken(token);
     setTokenInCookies(token);
 
-    redirect("/dashboard-admin");
+    redirect(`/dashboard-admin/${user.role}`);
   };
 
   // Logout function---

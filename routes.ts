@@ -12,6 +12,8 @@ export const publicRoutes = ["/", "/error"];
 
 export const authRoutes = ["/login"];
 
+export const roleRoutes = ["news", "activities", "centers"];
+
 /*
  * the default redirect path after login in
  * @type (string)
