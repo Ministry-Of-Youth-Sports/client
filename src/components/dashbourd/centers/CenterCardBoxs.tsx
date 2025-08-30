@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { CenterType } from "@/app/dashboard-admin/centers/page";
 import Image from "next/image";
-import { Building2, MapPin } from "lucide-react";
+import { Building2, MapPin, MapPinned } from "lucide-react";
 
 const CenterCardBoxs = ({ data }: { data: CenterType }) => {
   // const { token } = useAuth();
@@ -49,7 +49,10 @@ const CenterCardBoxs = ({ data }: { data: CenterType }) => {
           </div>
         )}
 
-        <p>العنوان : {address}</p>
+        <div className="flex items-center gap-2">
+          <MapPinned />
+          <p>العنوان : {address}</p>
+        </div>
         <p>الرقم : {phone}</p>
       </CardContent>
 

@@ -33,9 +33,6 @@ export const fetchUpdateActivity = async ({
       status: activityData.status,
     };
 
-    // Debug logs
-    console.log("Sending data:", formatedData);
-
     const response = await fetch(`${API_BASE_URL}/activities/${id}`, {
       method: "PUT",
       headers: {
@@ -44,8 +41,6 @@ export const fetchUpdateActivity = async ({
       },
       body: JSON.stringify(formatedData),
     });
-
-    console.log("Response status:", response);
 
     if (response.ok) {
       const data = await response.json();

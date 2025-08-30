@@ -11,12 +11,33 @@ export const fetchCreateActivity = async ({
   token,
 }: fetchCreateActivityProps) => {
   try {
+    const formatedData = {
+      projectName: activityData.projectName,
+      coordinatorName: activityData.coordinatorName,
+      phoneNumber: activityData.phoneNumber,
+      location: activityData.location,
+      date: activityData.date,
+      time: activityData.time,
+      daysCount: activityData.daysCount,
+      participantsCount: activityData.participantsCount,
+      notes: activityData.notes,
+      gender: activityData.gender,
+      accessType: activityData.accessType,
+      targetAge: {
+        min: activityData.minAge,
+        max: activityData.maxAge,
+      },
+      status: activityData.status,
+    };
+    console.log("Sending data:", formatedData);
+
     const response = await fetch(`${API_BASE_URL}/activities`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(activityData),
+      body: JSON.stringify(formatedData),
     });
 
     console.log(response);
