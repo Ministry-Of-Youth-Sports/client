@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import NewsCardBoxs from "@/components/dashbourd/news/NewsCardBoxs";
 import { fetchAllNews } from "@/utils/news/fetchAllNews";
 import { toast } from "sonner";
