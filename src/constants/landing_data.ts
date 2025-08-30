@@ -167,11 +167,11 @@ const howItWorks = [
 
 const team = [
   {
-    name: "Marwan",
+    name: "D.Mrawan El hawary",
     position: "Data Analyst, Inspector",
     image: "/assets/marwan.jpg",
     description:
-      "Marwan is a dedicated Data Analyst with strong analytical skills. His experience in data inspection and interpretation helps the team make data-driven decisions and ensures accuracy in every project.",
+      "Project leader and founder Currently, I work in financial and administrative inspection at the Directorate of Youth and Sports in Cairo. Specialized in data analysis and execution planning Dedicated to enhancing the directorate and youth centers in service of the nation.",
   },
   {
     name: "Mohamed Mahmoud",
