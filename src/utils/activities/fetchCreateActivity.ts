@@ -11,7 +11,7 @@ export const fetchCreateActivity = async ({
   token,
 }: fetchCreateActivityProps) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/activits`, {
+    const response = await fetch(`${API_BASE_URL}/activities`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

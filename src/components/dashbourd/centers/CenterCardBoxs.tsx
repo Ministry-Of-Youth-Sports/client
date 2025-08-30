@@ -30,7 +30,7 @@ const CenterCardBoxs = ({ data }: { data: CenterType }) => {
           </div>
         </CardTitle>
         <CardDescription className="text-sm flex items-center gap-2">
-          <MapPin className="text-[2px]" />
+          <MapPin size={16} />
           {LocationArea}
         </CardDescription>
       </CardHeader>
