@@ -86,14 +86,15 @@ const CreateActivityForm = () => {
   return (
     <form
       onSubmit={handleSubmit(handelActivityCreate)}
-      className="border-muted-foreground overflow-y-auto h-[500px] text-white border-[1px] rounded-2xl p-8 min-w-[200px] sm:min-w-[600px] lg:max-w-[80%] bg-card [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:hidden dark:[&::-webkit-scrollbar-track]:hidden"
+      className="border-muted-foreground overflow-y-auto max-h-[500px] text-white border-[1px] rounded-2xl p-8 min-w-[200px] sm:min-w-[600px] lg:max-w-[80%] bg-card [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:hidden dark:[&::-webkit-scrollbar-track]:hidden"
+      dir="rtl"
     >
       <h1 className="text-2xl text-center mb-14">انشاء النشاط</h1>
 
       {(inputs as InputConfig[]).map(({ label, name, placeholder, type }) =>
         type === "select" ? (
           <div key={name} className="mb-8">
-            <label dir="rtl" htmlFor={name} className="mb-4 block">
+            <label htmlFor={name} className="mb-4 block">
               {label}
             </label>
             <Controller
@@ -124,7 +125,7 @@ const CreateActivityForm = () => {
             )}
           </div>
         ) : type === "textarea" ? (
-          <div dir="rtl" className="mb-8" key={name}>
+          <div className="mb-8" key={name}>
             <label htmlFor={name} className="mb-4 block">
               {label}
             </label>
@@ -144,7 +145,7 @@ const CreateActivityForm = () => {
             )}
           </div>
         ) : (
-          <div dir="rtl" className="mb-8" key={name}>
+          <div className="mb-8" key={name}>
             <label htmlFor={name} className="mb-4 block">
               {label}
             </label>
