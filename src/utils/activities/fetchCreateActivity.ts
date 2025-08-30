@@ -29,7 +29,6 @@ export const fetchCreateActivity = async ({
       },
       status: activityData.status,
     };
-    console.log("Sending data:", formatedData);
 
     const response = await fetch(`${API_BASE_URL}/activities`, {
       method: "POST",
@@ -39,8 +38,6 @@ export const fetchCreateActivity = async ({
       },
       body: JSON.stringify(formatedData),
     });
-
-    console.log(response);
 
     if (response.ok) {
       const data = await response.json();
