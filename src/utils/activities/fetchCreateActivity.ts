@@ -13,11 +13,14 @@ export const fetchCreateActivity = async ({
   try {
     const response = await fetch(`${API_BASE_URL}/activits`, {
       method: "POST",
+      cache: "no-store",
       headers: {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(activityData),
     });
+
+    console.log(response);
 
     if (response.ok) {
       const data = await response.json();
