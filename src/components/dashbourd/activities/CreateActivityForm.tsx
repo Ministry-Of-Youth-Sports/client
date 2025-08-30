@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { inputs } from "@/constants/dashboard_data";
 import {
-  CreateActivityForm as CreateActivityFormType,
+  CreateActivityFormType,
   CreateActivitySchema,
-} from "@/lib/validations/CreateActivitySchema";
+} from "@/lib/validations/ActivityCrudSchema";
 import { useAuth } from "@/providers/AuthProvider";
 import { fetchCreateActivity } from "@/utils/activities/fetchCreateActivity";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,7 +17,7 @@ import React from "react";
 import { useForm, Controller, FieldError } from "react-hook-form";
 import { toast } from "sonner";
 
-type InputConfig = {
+export type InputConfig = {
   label: string;
   name: string;
   placeholder: string;
@@ -38,7 +38,7 @@ const CreateActivityForm = () => {
     defaultValues: {
       projectName: "",
       coordinatorName: "",
-      phoneNumber: 0,
+      phoneNumber: "",
       location: "",
       date: "",
       time: "",
@@ -86,13 +86,13 @@ const CreateActivityForm = () => {
   return (
     <form
       onSubmit={handleSubmit(handelActivityCreate)}
-      className="border-muted-foreground relative overflow-y-auto h-[500px] text-white border-[1px] rounded-2xl p-8 min-w-[200px] sm:min-w-[600px] lg:max-w-[80%] bg-card [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:hidden dark:[&::-webkit-scrollbar-track]:hidden"
+      className="border-muted-foreground overflow-y-auto h-[500px] text-white border-[1px] rounded-2xl p-8 min-w-[200px] sm:min-w-[600px] lg:max-w-[80%] bg-card [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:hidden dark:[&::-webkit-scrollbar-track]:hidden"
     >
       <h1 className="text-2xl text-center mb-14">انشاء النشاط</h1>
 
       {(inputs as InputConfig[]).map(({ label, name, placeholder, type }) =>
         type === "select" ? (
-          <div key={name} className="mb-8">
+          <div key={name} dir="ltr" className="mb-8">
             <label dir="rtl" htmlFor={name} className="mb-4 block">
               {label}
             </label>
@@ -103,8 +103,10 @@ const CreateActivityForm = () => {
                 <SelectBox
                   label={label}
                   boxes={
-                    label === "الجنس"
+                    name === "gender"
                       ? ["بنين", "بنات", "مختلط"]
+                      : name === "status"
+                      ? ["مجدول", "جاري", "ملغي"]
                       : ["الأعضاء فقط", "للجميع"]
                   }
                   value={value as string}

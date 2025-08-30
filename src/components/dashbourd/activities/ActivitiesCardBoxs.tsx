@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { ActivityType } from "@/app/dashboard-admin/activities/page";
 import moment from "moment";
 import { fetchDeleteActivity } from "@/utils/activities/fetchDeleteActivity";
+import UpdateActivityFormComponent from "./UpdateActivityForm";
 
 const ActivitiesCardBoxs = ({
   data: {
@@ -36,6 +37,7 @@ const ActivitiesCardBoxs = ({
     time,
     duration,
     notes,
+    targetAge,
   },
 }: {
   data: ActivityType;
@@ -49,7 +51,7 @@ const ActivitiesCardBoxs = ({
       await fetchDeleteActivity({ id: _id, token });
 
     if (!success) toast.error(message);
-    else toast("تم حذف النشاط بنجاح");
+    else toast.success("تم حذف النشاط بنجاح");
 
     // update the page---
     refresh();
@@ -65,7 +67,6 @@ const ActivitiesCardBoxs = ({
           </span>
         </CardDescription>
         <CardAction>
-          {" "}
           <p>الحالة : {status}</p>
         </CardAction>
       </CardHeader>
@@ -80,7 +81,7 @@ const ActivitiesCardBoxs = ({
         <p>عدد ايام النشاط : {daysCount}</p>
         <p>عدد المشاركين : {participantsCount}</p>
         <p>رقم الهاتف : {phoneNumber}</p>
-        <p>ملاحظات : {notes}</p>
+        <p>ملاحظات : {notes || "لا توجد ملاحظات"}</p>
       </CardContent>
       <CardFooter className="flex items-center gap-4 mt-4">
         <AlertDialogBox
@@ -91,7 +92,26 @@ const ActivitiesCardBoxs = ({
           })} text-white hover:!bg-red-500`}
         />
 
-        {/* <UpdateNewForm newData={{ title, content, image, socialLink, _id }} /> */}
+        <UpdateActivityFormComponent
+          activityData={{
+            _id,
+            accessType,
+            coordinatorName,
+            date,
+            daysCount,
+            gender,
+            location,
+            participantsCount,
+            phoneNumber,
+            projectName,
+            status,
+            targetAge: targetAge || { min: 0, max: 0 },
+            time,
+            ageRange,
+            notes: notes || "",
+            duration,
+          }}
+        />
       </CardFooter>
     </Card>
   );

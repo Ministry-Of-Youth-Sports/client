@@ -1,7 +1,7 @@
-import { CreateActivityForm } from "@/lib/validations/CreateActivitySchema";
+import { UpdateActivityFormType } from "@/lib/validations/ActivityCrudSchema";
 
 const inputs: Array<{
-  name: keyof CreateActivityForm;
+  name: keyof UpdateActivityFormType;
   type: string;
   placeholder: string;
   label: string;
@@ -20,7 +20,7 @@ const inputs: Array<{
   },
   {
     name: "phoneNumber",
-    type: "number",
+    type: "text",
     placeholder: "ادخل رقم الهاتف",
     label: "رقم الهاتف",
   },
@@ -77,6 +77,12 @@ const inputs: Array<{
     type: "select",
     placeholder: "ادخل نوع الوصول",
     label: "نوع الوصول",
+  },
+  {
+    name: "status",
+    type: "select",
+    placeholder: "ادخل الملاحظات",
+    label: "الحالة",
   },
   {
     name: "notes",

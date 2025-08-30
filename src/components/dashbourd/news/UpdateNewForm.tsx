@@ -21,6 +21,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { fetchUpdateNews } from "@/utils/news/fetchUpdateNews";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -32,6 +33,8 @@ const UpdateNewForm = ({
   const { token } = useAuth();
 
   const { refresh } = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const {
     handleSubmit,
@@ -67,12 +70,15 @@ const UpdateNewForm = ({
 
     toast("تم تعديل الخبر بنجاح");
 
+    // Close the dialog
+    setIsOpen(false);
+
     // send user to news page------------------
     refresh();
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button className="bg-green-700 cursor-pointer text-white hover:bg-green-600">
           تعديل
