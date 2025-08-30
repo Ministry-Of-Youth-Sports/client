@@ -14,7 +14,7 @@ import {
 type AlertDialogBoxProps = {
   text: string;
   className?: string;
-  onAction: () => void;
+  onAction?: () => void;
 };
 
 const AlertDialogBox = ({ text, className, onAction }: AlertDialogBoxProps) => {

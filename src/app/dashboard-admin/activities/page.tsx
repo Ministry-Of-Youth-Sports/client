@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import ActivitiesCardBoxs from "@/components/dashbourd/activities/ActivitiesCardBoxs";
 import { fetchAllActivities } from "@/utils/activities/fetchAllActivities";
 import { toast } from "sonner";
@@ -41,7 +44,7 @@ const ActivitiesPage = async () => {
 
     return (
       <div>
-        <p>Error fetching news</p>
+        <p>Error fetching activities</p>
         <p>Please try again later</p>
       </div>
     );
