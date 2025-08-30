@@ -3,7 +3,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const fetchAllNews = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/news?page=1&limit=50`, {
-      cache: "no-store",
+      next: { revalidate: 3600 },
       method: "GET",
       headers: {
         "Content-Type": "application/json",
