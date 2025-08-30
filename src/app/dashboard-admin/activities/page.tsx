@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import ActivitiesCardBoxs from "@/components/dashbourd/activities/ActivitiesCardBoxs";
 import { fetchAllActivities } from "@/utils/activities/fetchAllActivities";
 import { toast } from "sonner";

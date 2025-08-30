@@ -92,7 +92,7 @@ const CreateActivityForm = () => {
 
       {(inputs as InputConfig[]).map(({ label, name, placeholder, type }) =>
         type === "select" ? (
-          <div key={name} dir="ltr" className="mb-8">
+          <div key={name} className="mb-8">
             <label dir="rtl" htmlFor={name} className="mb-4 block">
               {label}
             </label>

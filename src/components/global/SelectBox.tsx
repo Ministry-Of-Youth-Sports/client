@@ -27,7 +27,7 @@ export function SelectBox({
       <SelectTrigger className="w-full">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent dir="ltr">
         <SelectGroup>
           <SelectLabel>{label}</SelectLabel>
           {boxes.map((item) => (
