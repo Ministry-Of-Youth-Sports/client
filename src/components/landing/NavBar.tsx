@@ -8,6 +8,7 @@ import HamburgerMenu from "../global/HamburgerMenu";
 import { navLinks } from "../../constants/landing_data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 
 const NavBar = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -27,6 +28,10 @@ const NavBar = () => {
       width: "90%",
       margin: "auto",
       top: "10px",
+    });
+
+    navTween.to(".normal-links a", {
+      fontSize: "13px",
     });
 
     gsap.from(".anim-link", {
@@ -60,9 +65,12 @@ const NavBar = () => {
             />
           </ScrollLink>
 
-          <ul>
+          <ul className="normal-links">
             {navLinks.map(({ title, link }, index) => (
-              <li key={title} className="hover:cursor-pointer anim-link">
+              <li
+                key={title}
+                className="hover:cursor-pointer anim-link text-[16px]"
+              >
                 <ScrollLink
                   to={link}
                   href={link}
@@ -83,6 +91,10 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
+
+          <div className="bg-active-link/80 hidden xl:block hover:bg-active-link transition-all duration-300 text-sm text-white py-2 px-4 rounded">
+            <Link href="/login">تسجيل</Link>
+          </div>
 
           {/* bar button */}
           <div className="xl:hidden">
@@ -123,6 +135,12 @@ const NavBar = () => {
               </ScrollLink>
             </li>
           ))}
+          <Link
+            href="/login"
+            className="bg-btn-primary py-4 px-6 rounded-full text-white"
+          >
+            تسجيل
+          </Link>
         </ul>
       </div>
     </>

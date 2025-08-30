@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+
 import CenterCardBoxs from "@/components/dashbourd/centers/CenterCardBoxs";
 import { fetchAllCenters } from "@/utils/centers/fetchAllCenters";
 import { toast } from "sonner";
@@ -60,7 +61,7 @@ const CentersPage = async () => {
   if (!Centers || Centers.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px] p-8">
-        <p className="text-gray-600 text-lg">لا توجد مراكز متاحة حالياً</p>
+        <p className="text-lg">لا توجد مراكز متاحة حالياً</p>
       </div>
     );
   }

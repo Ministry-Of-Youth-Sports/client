@@ -34,7 +34,7 @@ const ActivitiesPage = async () => {
   const { success, activits }: ActivitiesData = await fetchAllActivities();
 
   if (!success) {
-    toast.error("حدث خطأ أثناء تحميل الأخبار", {
+    toast.error("حدث خطأ أثناء تحميل الانشطة", {
       style: {
         backgroundColor: "#8B0000",
         color: "#fff",
@@ -43,9 +43,11 @@ const ActivitiesPage = async () => {
     });
 
     return (
-      <div>
-        <p>Error fetching activities</p>
-        <p>Please try again later</p>
+      <div className="flex flex-col items-center justify-center min-h-[400px] p-8">
+        <p className="text-red-600 text-lg font-semibold mb-2">
+          خطأ في تحميل الانشطة
+        </p>
+        <p className="text-gray-600">يرجى المحاولة مرة أخرى لاحقاً</p>
       </div>
     );
   }

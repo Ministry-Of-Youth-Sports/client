@@ -32,12 +32,23 @@ const NewsPage = async () => {
     });
 
     return (
-      <div>
-        <p>Error fetching news</p>
-        <p>Please try again later</p>
+      <div className="flex flex-col items-center justify-center min-h-[400px] p-8">
+        <p className="text-red-600 text-lg font-semibold mb-2">
+          خطأ في تحميل المراكز
+        </p>
+        <p className="text-gray-600">يرجى المحاولة مرة أخرى لاحقاً</p>
       </div>
     );
   }
+
+  if (!articles || articles.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[400px] p-8">
+        <p className="text-lg">لا توجد اؔخبار متاحة حالياً</p>
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-5">
       {articles.map((article) => (
