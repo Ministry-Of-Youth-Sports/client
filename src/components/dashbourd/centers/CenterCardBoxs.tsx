@@ -63,7 +63,7 @@ const CenterCardBoxs = ({ data }: { data: CenterType }) => {
 
       <CardFooter className="flex items-center gap-3 pt-4">
         <Link
-          href={`/dashboard-admin/centers/details`}
+          href={`/dashboard-admin/centers/details/${_id}`}
           className="text-sm text-blue-500"
         >
           <Button className="cursor-pointer">

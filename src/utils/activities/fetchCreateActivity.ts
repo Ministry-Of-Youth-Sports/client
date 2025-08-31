@@ -39,11 +39,11 @@ export const fetchCreateActivity = async ({
       body: JSON.stringify(formatedData),
     });
 
+    const data = await response.json();
     if (response.ok) {
-      const data = await response.json();
       return data;
     } else {
-      throw new Error("حدث خطاء في انشاء النشاط");
+      throw new Error(data.message);
     }
   } catch (error) {
     console.error(error);
