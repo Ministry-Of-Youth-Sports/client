@@ -27,7 +27,6 @@ import { SelectBox } from "@/components/global/SelectBox";
 import { fetchUpdateActivity } from "@/utils/activities/fetchUpdateActivity";
 import { ActivityType } from "@/app/dashboard-admin/activities/page";
 import { inputs } from "@/constants/dashboard_data";
-import { parsePhoneNumber } from "@/utils/parsePhoneNumber";
 import { formatDateForInput } from "@/utils/formatDateForInput";
 
 const UpdateActivityForm = ({

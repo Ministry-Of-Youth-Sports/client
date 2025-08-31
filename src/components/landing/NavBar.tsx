@@ -92,7 +92,7 @@ const NavBar = () => {
             ))}
           </ul>
 
-          <div className="bg-active-link/80 hidden xl:block hover:bg-active-link transition-all duration-300 text-sm text-white py-2 px-4 rounded">
+          <div className="bg-active-link/80 hidden xl:block hover:bg-active-link transition-all duration-300 text-sm text-white py-2 px-4 rounded-full">
             <Link href="/login">تسجيل</Link>
           </div>
 

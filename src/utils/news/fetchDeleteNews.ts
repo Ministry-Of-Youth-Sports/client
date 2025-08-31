@@ -15,17 +15,17 @@ export const fetchDeleteNews = async ({ id, token }: Props) => {
       },
     });
 
+    const data = await response.json();
     if (response.ok) {
-      const data = await response.json();
       return data;
     } else {
-      throw new Error("Error deleting news");
+      throw new Error(data.message || "حدث خطاء في حذف الخبر");
     }
   } catch (error) {
     console.error(error);
     return {
       success: false,
-      message: error instanceof Error ? error.message : "Error deleting news",
+      message: error instanceof Error ? error.message : "حدث خطاء في حذف الخبر",
     };
   }
 };

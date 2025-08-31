@@ -32,7 +32,7 @@ export type CenterType = {
   artActivities: { _id: string; name: string }[];
 };
 
-type CentersData = {
+export type CentersData = {
   success: boolean;
   Centers: CenterType[];
 };

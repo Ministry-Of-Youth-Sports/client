@@ -9,11 +9,11 @@ export const fetchAllNews = async () => {
       },
     });
 
+    const data = await response.json();
     if (response.ok) {
-      const data = await response.json();
       return data;
     } else {
-      throw new Error("Error fetching news data");
+      throw new Error(data.message || "Error fetching news data");
     }
   } catch (error) {
     console.error(error);

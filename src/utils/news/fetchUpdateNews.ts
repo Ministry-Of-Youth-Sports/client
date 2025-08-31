@@ -37,11 +37,11 @@ export const fetchUpdateNews = async ({
       body: formData,
     });
 
+    const data = await response.json();
     if (response.ok) {
-      const data = await response.json();
       return data;
     } else {
-      throw new Error("حدث خطاء في تعديل الخبر");
+      throw new Error(data.message || "حدث خطاء في تعديل الخبر");
     }
   } catch (error) {
     console.error(error);

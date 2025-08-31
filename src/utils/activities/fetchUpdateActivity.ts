@@ -42,11 +42,11 @@ export const fetchUpdateActivity = async ({
       body: JSON.stringify(formatedData),
     });
 
+    const data = await response.json();
     if (response.ok) {
-      const data = await response.json();
       return data;
     } else {
-      throw new Error("حدث خطاء في تعديل النشاط");
+      throw new Error(data.message || "حدث خطاء في تعديل النشاط");
     }
   } catch (error) {
     console.error(error);

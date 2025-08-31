@@ -43,7 +43,7 @@ export const fetchCreateActivity = async ({
     if (response.ok) {
       return data;
     } else {
-      throw new Error(data.message);
+      throw new Error(data.message || "حدث خطاء في انشاء النشاط");
     }
   } catch (error) {
     console.error(error);

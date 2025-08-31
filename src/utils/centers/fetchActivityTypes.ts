@@ -1,8 +1,8 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const fetchCenter = async (id: string) => {
+export const fetchActivityTypes = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/centers/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/activity-Types`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -10,18 +10,17 @@ export const fetchCenter = async (id: string) => {
     });
 
     const data = await response.json();
-
     if (response.ok) {
       return data;
     } else {
-      throw new Error(data.message || "حدث خطا في جلب بيانات المركز ");
+      throw new Error(data.message || "حدث خطا في جلب المراكز ");
     }
   } catch (error) {
     console.error(error);
     return {
       success: false,
       message:
-        error instanceof Error ? error.message : "حدث خطا في جلب بيانات المركز",
+        error instanceof Error ? error.message : "حدث خطا في جلب المراكز",
     };
   }
 };

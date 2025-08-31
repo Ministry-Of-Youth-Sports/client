@@ -9,11 +9,11 @@ export const fetchAllActivities = async () => {
       },
     });
 
+    const data = await response.json();
     if (response.ok) {
-      const data = await response.json();
       return data;
     } else {
-      throw new Error("حدث خطاء في جلب الانشطة و البرامج");
+      throw new Error(data.message || "حدث خطاء في جلب الانشطة و البرامج");
     }
   } catch (error) {
     console.error(error);
