@@ -69,7 +69,7 @@ const NavBar = () => {
             {navLinks.map(({ title, link }, index) => (
               <li
                 key={title}
-                className="hover:cursor-pointer anim-link text-[16px]"
+                className="hover:cursor-pointer anim-link text-[15px]"
               >
                 <ScrollLink
                   to={link}
