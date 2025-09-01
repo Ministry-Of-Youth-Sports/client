@@ -4,6 +4,7 @@ import { FaGooglePlay } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import Link from "next/link";
 
 const DawnloadApp = () => {
   useGSAP(() => {
@@ -53,16 +54,20 @@ const DawnloadApp = () => {
             في مكان واحد.
           </p>
           <div className="anim-button">
-            <AnimatedButton
-              link="https://drive.google.com/file/d/1QAcJY5SdTUKlQBjJAu0ruzOC7Tk3GRg5/view?usp=drive_link"
-              variant="default"
-              className="flex justify-center items-center gap-2 mt-15 rounded-lg"
+            <Link
+              href="https://drive.google.com/file/d/1QAcJY5SdTUKlQBjJAu0ruzOC7Tk3GRg5/view?usp=drive_link"
+              target="_blank"
             >
-              <>
-                <span>حمل التطبيق الان</span>
-                <FaGooglePlay />
-              </>
-            </AnimatedButton>
+              <AnimatedButton
+                variant="default"
+                className="flex justify-center items-center gap-2 mt-15 rounded-lg"
+              >
+                <>
+                  <span>حمل التطبيق الان</span>
+                  <FaGooglePlay />
+                </>
+              </AnimatedButton>
+            </Link>
           </div>
         </div>
 

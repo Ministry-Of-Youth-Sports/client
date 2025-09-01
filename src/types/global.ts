@@ -23,7 +23,6 @@ type AnimatedButtonProps = {
   variant: "default" | "secondary" | "3d";
   frontText?: string;
   topText?: string;
-  link: string;
 };
 
 type CardSwiperProps = {

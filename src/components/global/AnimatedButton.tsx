@@ -1,5 +1,4 @@
 import { AnimatedButtonProps } from "@/types/global";
-import Link from "next/link";
 
 const AnimatedButton = ({
   children = "Get in touch",
@@ -7,14 +6,12 @@ const AnimatedButton = ({
   variant,
   frontText = "",
   topText = "",
-  link,
 }: AnimatedButtonProps) => {
   return (
     <>
       {variant === "default" && (
-        <Link href={link} target="_blank">
-          <button
-            className={`relative px-6 py-3 
+        <button
+          className={`relative px-6 py-3 
         border border-gray-600 rounded 
         text-lg text-btn-primary cursor-pointer 
         overflow-hidden z-10
@@ -36,10 +33,9 @@ const AnimatedButton = ({
         hover:after:transform hover:after:-translate-x-1/2 hover:after:scale-y-130 hover:after:scale-x-80
         ${className}
         `}
-          >
-            {children}
-          </button>
-        </Link>
+        >
+          {children}
+        </button>
       )}
       {variant === "3d" && (
         <div className={`w-40 flex justify-center items-center ${className}`}>
