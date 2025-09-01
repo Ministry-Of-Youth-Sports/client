@@ -1,5 +1,3 @@
-import { title } from "process";
-
 const navLinks = [
   {
     title: "الرئيسية",
@@ -37,9 +35,9 @@ const navLinks = [
 
 const aboutData = [
   {
-    title: "ربط جميع الإدارات على مستوى مديرية القاهرة ",
+    title: "ربط جميع الإدارات على مستوى مديرية القاهرة",
     description:
-      "ربط جميع إدارات الشباب والرياضة في محافظة القاهرة. تجمع المنصة جميع إدارات الشباب والرياضة في جميع أنحاء القاهرة في مكان واحد، مما يتيح لك الوصول بسهولة إلى أي إدارة عبر خريطة تفاعلية أو قوائم منظمة.",
+      "تهدف المنصة إلى ربط كافة الإدارات الشبابية والرياضية التابعة لمديرية القاهرة ضمن نظام موحد، بما يساهم في تعزيز التعاون وتسهيل تبادل البيانات والمعلومات بين مختلف الإدارات بشكل منظم وفعّال",
     cardColor: "#003D68",
     icon: "/assets/connection-icon.gif",
     illustrator: "/assets/bussiness-illu.gif",
@@ -48,16 +46,16 @@ const aboutData = [
   {
     title: "قاعدة بيانات موحدة لخدمة المجتمع",
     description:
-      "المنصة بتجمع كل الإدارات الشبابية والرياضية من جميع انحاء القاهرة في مكان واحد، بحيث تقدر أن تصل لأي شخص تدير بسهولة من خلال خريطة تفاعلية أو قوائم منظمة.",
+      "تُوفر المنصة قاعدة بيانات شاملة تضم جميع الإدارات الشبابية والرياضية بمحافظة القاهرة، مما يتيح إمكانية الوصول إلى المعلومات بشكل دقيق وسريع من خلال خريطة تفاعلية وقوائم مُنظمة",
     cardColor: "#6B0002",
     icon: "/assets/database-icon.gif",
     illustrator: "/assets/database-illu.gif",
     size: { width: 210, height: 210 },
   },
   {
-    title: " دعم الشباب والرياضة بأدوات تكنولوجية حديثة",
+    title: "دعم الشباب والرياضة بأدوات تكنولوجية حديثة",
     description:
-      "حيث نستخدم أحدث الحلول الرقمية والتقنية لكي نوفر للشباب وسيلة سريعة وفعّالة للوصول للخدمات والمشاركة في الأنشطة",
+      "تعتمد المنصة على أحدث الوسائل التكنولوجية والرقمية بهدف تمكين الشباب وتسهيل مشاركتهم في الأنشطة والخدمات الرياضية، وذلك بما يضمن توفير تجربة أكثر كفاءة وفاعلية",
     cardColor: "#866200",
     icon: "/assets/youth-icon.gif",
     illustrator: "/assets/tech-assitant-illu.gif",
@@ -66,7 +64,7 @@ const aboutData = [
   {
     title: "سهولة في التعامل للمواطنين",
     description:
-      "تصميم المنصة بسيط وسهل الاستخدام، لكي يقدر المواطنون على الوصول للمعلومات والخدمات بخطوات قليلة ودون تعقيد",
+      "تتميز المنصة بتصميم واجهة استخدام مبسطة تتيح للمواطنين سهولة الوصول إلى الخدمات والمعلومات، بما يُسهم في تيسير الإجراءات وتقليل الوقت والجهد المبذول",
     cardColor: "#006810",
     icon: "/assets/community-icon.gif",
     illustrator: "/assets/users-illu.gif",
@@ -75,7 +73,7 @@ const aboutData = [
 ];
 
 const countingOrgsBoxes = [
-  { title: "المستفيدين", count: "100000" },
+  { title: "المستفيدين", count: "5320000" },
   { title: "مركز", count: "74" },
   { title: "نادي", count: "136" },
 ];
@@ -84,24 +82,25 @@ const featuresCards = [
   {
     number: "۰۱",
     discription:
-      "واجهة بسيطة وسهلة الاستخدام تتيح للمواطنين الوصول لأي إدارة أو خدمة بخطوات قليلة.",
+      "منصة ذات تصميم حديث تُسهل على المواطنين الوصول إلى الإدارات والخدمات بكل مرونة.",
     img: "/assets/users-illu-2.gif",
   },
   {
     number: "۰۲",
-    discription: "بيانات رسمية ومحدّثة باستمرار لضمان الشفافية والثقة.",
+    discription:
+      "توفير بيانات دقيقة ومُحدثة باستمرار بما يضمن المصداقية والشفافية في تقديم المعلومات.",
     img: "/assets/data-illu.gif",
   },
   {
     number: "۰۳",
     discription:
-      "قاعدة بيانات موحّدة تربط جميع الإدارات والمؤسسات في نظام واحد متكامل.",
+      "نظام مركزي موحّد يربط بين جميع الإدارات والمؤسسات لتعزيز التكامل الإداري.",
     img: "/assets/database-illu.gif",
   },
   {
     number: "۰٤",
     discription:
-      "تمكين الشباب وتوسيع الأنشطة الرياضية من خلال أدوات تكنولوجية حديثة.",
+      "دعم قطاعي الشباب والرياضة من خلال حلول رقمية مبتكرة تساهم في توسيع نطاق الأنشطة والخدمات.",
     img: "/assets/youth-illu.gif",
   },
 ];
@@ -110,7 +109,7 @@ const howItWorks = [
   {
     title: "ابدأ رحلتك",
     description:
-      "قم بتحميل التطبيق على هاتفك أو ادخل على النسخة الإلكترونية من المنصة. المنصة متاحة للجميع في أي وقت ومن أي مكان",
+      "قم بتحميل التطبيق على هاتفك المحمول أو استخدم النسخة الإلكترونية من المنصة، والمتاحة لجميع المواطنين في أي وقت ومن أي مكان",
     cardColor: "#F5F5F5",
     num: "۰۱",
     illustrator: "/assets/userapp-illu.png",
@@ -124,7 +123,7 @@ const howItWorks = [
   {
     title: "اختر الإدارة أو الخدمة",
     description:
-      "من خلال واجهة واضحة وسهلة، تقدر تبحث أو تختار مباشرة الإدارة أو الخدمة اللي محتاجها. كل الخدمات مصنفة ومنظمة لتسهيل عملية الوصول",
+      "من خلال واجهة واضحة وسهلة الاستخدام، يمكن البحث أو اختيار الإدارة أو الخدمة المطلوبة مباشرة. تم تصنيف جميع الخدمات وتنظيمها لتسهيل عملية الوصول",
     cardColor: "#F5F5F5",
     num: "۰۲",
     illustrator: "/assets/user-choose-illu.png",
@@ -138,7 +137,7 @@ const howItWorks = [
   {
     title: "تصفح البيانات الرسمية",
     description:
-      "استعرض جميع المعلومات المتاحة بشكل شفاف، سواء بيانات الإدارات أو الأنشطة أو الخدمات. كل البيانات موثوقة ومحدثة باستمرار",
+      "استعرض المعلومات والبيانات المتاحة بشكل شفاف ودقيق، سواء المتعلقة بالإدارات أو الأنشطة أو الخدمات، مع ضمان تحديثها بشكل دوري",
     cardColor: "#F5F5F5",
     num: "۰۳",
     illustrator: "/assets/user-browsing-illu.png",
@@ -152,7 +151,7 @@ const howItWorks = [
   {
     title: "تواصل واستفد",
     description:
-      "تقدر تتواصل مع الجهة المختصة مباشرة، أو تستفيد من الخدمات المقدمة سواء للشباب أو للأنشطة الرياضية. المنصة هدفها تسهيل الإجراءات وتوفير الوقت والمجهود",
+      "يمكنك التواصل مع الجهة المختصة مباشرة أو الاستفادة من مختلف الخدمات المقدمة للشباب والأنشطة الرياضية، بما يساهم في تسهيل الإجراءات وتوفير الوقت والجهد",
     cardColor: "#F5F5F5",
     num: "۰٤",
     illustrator: "/assets/user-call-illu.png",
@@ -168,10 +167,10 @@ const howItWorks = [
 const team = [
   {
     name: "D.Mrawan El hawary",
-    position: "Data Analyst, Inspector",
+    position: "Project leader and founder",
     image: "/assets/marwan.jpg",
     description:
-      "Project leader and founder Currently, I work in financial and administrative inspection at the Directorate of Youth and Sports in Cairo. Specialized in data analysis and execution planning Dedicated to enhancing the directorate and youth centers in service of the nation.",
+      "Currently, I work in financial and administrative inspection at the Directorate of Youth and Sports in Cairo. Specialized in data analysis and execution planning Dedicated to enhancing the directorate and youth centers in service of the nation.",
   },
   {
     name: "Mohamed Mahmoud",

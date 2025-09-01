@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { landingMapLocations } from "@/constants/mapLocations";
+import Link from "next/link";
 
 const Map = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -45,9 +46,13 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {landingMapLocations.map(({ title, position }) => (
+      {landingMapLocations.map(({ title, position, link }) => (
         <Marker key={title} position={position} icon={customIcon}>
-          <Popup>{title}</Popup>
+          <Popup>
+            <Link href={link} target="_blank">
+              {title}
+            </Link>
+          </Popup>
         </Marker>
       ))}
     </MapContainer>

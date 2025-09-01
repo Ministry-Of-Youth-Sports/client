@@ -13,35 +13,31 @@ export const fetchUpdateCenter = async ({
   token,
   id,
 }: fetchUpdateActivityProps) => {
-  // Check if there's an actual image file
-  const hasImage = centerData.image && centerData.image.name;
-
-  if (hasImage) {
-    // Send as FormData when there's an image
+  try {
     const formData = new FormData();
 
-    // Add all fields except image
+    // Add all data to FormData
     Object.keys(centerData).forEach((key) => {
-      if (key !== "image") {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        formData.append(key, JSON.stringify((centerData as any)[key]));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const value = (centerData as any)[key];
+
+      if (key === "image" && value instanceof File) {
+        formData.append("image", value);
+      } else if (key !== "image" && value !== undefined) {
+        formData.append(key, String(value));
       }
     });
 
-    // Add image file
-    formData.append("image", centerData.image ? centerData.image.name : "");
-  }
-  try {
     const response = await fetch(`${API_BASE_URL}/centers/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(centerData),
+      body: formData,
     });
 
     const data = await response.json();
+
     if (response.ok) {
       return data;
     } else {

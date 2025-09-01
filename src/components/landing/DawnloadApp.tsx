@@ -54,6 +54,7 @@ const DawnloadApp = () => {
           </p>
           <div className="anim-button">
             <AnimatedButton
+              link="https://drive.google.com/file/d/1QAcJY5SdTUKlQBjJAu0ruzOC7Tk3GRg5/view?usp=drive_link"
               variant="default"
               className="flex justify-center items-center gap-2 mt-15 rounded-lg"
             >

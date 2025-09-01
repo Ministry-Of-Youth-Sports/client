@@ -71,7 +71,7 @@ const OurTeam = () => {
         <div className="team-sec-text">
           <h2 className="sec-title">د/ احمد عبد الوكيل</h2>
           <h3 className="text-lg mt-5">
-            اول وكيل الوزارة - مدير مدرية الشباب و الرياضة بالقاهرة
+            وكيل الوزارة - مدير مدرية الشباب و الرياضة بالقاهرة
           </h3>
           <p className="mt-10 text-section-text text-xl">
             الدكتور أحمد عبد الوكيل هو قائد متميز في قطاع الشباب والرياضة

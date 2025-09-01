@@ -85,11 +85,11 @@ const Footer = () => {
         <div className="flex justify-around text-white mt-24 items-center gap-10 flex-col sm:flex-row">
           <div className="flex flex-col gap-10">
             <Link
-              href={"mailto:eygate@emss.gov.eg"}
+              href={"mailto:sports@cairo.gov.eg"}
               className="hover:underline flex items-center gap-5 sm:text-2xl"
             >
               <p>البريد الإلكتروني:</p>
-              Eygate@emss.gov.eg
+              sports@cairo.gov.eg
             </Link>
             <div className="social-anim flex items-center gap-5">
               <p className="sm:text-2xl">تابعنا على:</p>
